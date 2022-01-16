@@ -23,7 +23,10 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.buttonLogWarning).setOnClickListener {
             logger.w("warring Message added")
+        }
 
+        findViewById<Button>(R.id.buttonLogInfo).setOnClickListener {
+            logger.i("Info Message added")
         }
     }
 }

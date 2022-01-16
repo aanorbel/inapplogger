@@ -30,4 +30,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonLogError" />
 
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonLogInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log Info"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonLogWarning" />
 </androidx.constraintlayout.widget.ConstraintLayout>
