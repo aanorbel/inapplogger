@@ -50,7 +50,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.velmurugan'
                 artifactId = 'inapplogger'
-                version = '1.3'
+                version = '1.4'
             }
         }
     }
