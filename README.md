@@ -96,7 +96,17 @@ fun getInstance(context: Context): ApiService {
         }
 ```
 
-### deleting Log
+## Log Filter
+Log filtering option available in the Logger view to filter the log to want to see. For example you want to see only the API logs you can select the API in the log filter.
+like that we have,
+- Info Log Filter
+- Warning Log Filter
+- Error Log Filter
+- API Log Filter
+
+
+
+## deleting Log
 By default, InAppLogger wont delete the logs when launching the app. To enable the you need to call the deleteOldLog() on the initialization of the InAppLogger in Applicaion class.
 
 ```
