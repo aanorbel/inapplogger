@@ -3,8 +3,6 @@ package com.velmurugan.inapplogger
 import okhttp3.*
 import okio.Buffer
 import okio.IOException
-import org.apache.commons.io.IOUtils
-
 
 class InAppLoggerInterceptor() : Interceptor {
 
