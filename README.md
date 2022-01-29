@@ -1,6 +1,8 @@
 # InAppLogger
 InAppLogger is a very useful app to log your data in app screen. Normally logs will be shown in android studio Logcat. In some cases like remote debugging, you want to display the logs on mobile screen to debug.In that case you can use InAppLogger to display the logs in device screen.
 
+![InAppLogger Demo](https://user-images.githubusercontent.com/4497904/151669760-4691dbfa-3ab8-44d7-bcc5-eb1848492d62.gif)
+
 ## Fatures of InAppLogger
 - Logging Info
 - Logging Error
@@ -65,19 +67,23 @@ logger.attachView(v)
 logger = InAppLogger.loggerInstance!!
 logger.i("Info Message added")
 ```
+<img src="https://user-images.githubusercontent.com/4497904/151669796-dedacb04-1734-41c5-90c2-eb9ba9d916b2.png" width=50% height=50%>
 
 ## Adding Warning Log
 ```
 logger = InAppLogger.loggerInstance!!
 logger.w("warring Message added")
 ```
+<img src="https://user-images.githubusercontent.com/4497904/151669803-d762e641-3e0c-4e1b-9fe9-652b35b66364.png" width=50% height=50%>
+
 ## Adding Error Log
 ```
 logger = InAppLogger.loggerInstance!!
 logger.e("error Message added")
 ```
-## Adding API Log
+<img src="https://user-images.githubusercontent.com/4497904/151669807-322f3bfe-d1fc-496d-8af9-127f46195eca.png" width=50% height=50%>
 
+## Adding API Log
 TO enable the api logging, you need to add the LoggingInterceptor in your retrofit configurations.
 ```
 fun getInstance(context: Context): ApiService {
@@ -95,6 +101,7 @@ fun getInstance(context: Context): ApiService {
             return retrofitService!!
         }
 ```
+<img src="https://user-images.githubusercontent.com/4497904/151669814-ce56d885-d795-481a-8568-3322bb5ab6b8.png" width=50% height=50%>
 
 ## Log Filter
 Log filtering option available in the Logger view to filter the log to want to see. For example you want to see only the API logs you can select the API in the log filter.
@@ -103,8 +110,7 @@ like that we have,
 - Warning Log Filter
 - Error Log Filter
 - API Log Filter
-
-
+<img src="https://user-images.githubusercontent.com/4497904/151669822-a15556be-c917-4cee-b58b-09a6fc4e8960.png" width=50% height=50%>
 
 ## deleting Log
 By default, InAppLogger wont delete the logs when launching the app. To enable the you need to call the deleteOldLog() on the initialization of the InAppLogger in Applicaion class.
