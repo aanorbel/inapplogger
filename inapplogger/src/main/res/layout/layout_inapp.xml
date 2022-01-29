@@ -2,8 +2,47 @@
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="#121212">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal"
+        android:background="@android:color/white"
+        android:weightSum="3">
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerTag"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:spinnerMode="dropdown"
+            style="@android:style/Widget.Spinner.DropDown"
+            tools:listitem="@layout/support_simple_spinner_dropdown_item"
+            android:layout_weight="0.6"/>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCleanLog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:gravity="center"
+
+            android:text="Clear"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCloseLog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:gravity="center"
+            android:text="Close"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -15,5 +54,6 @@
             android:layout_height="wrap_content"
             android:padding="10dp"/>
     </ScrollView>
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>

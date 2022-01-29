@@ -9,10 +9,28 @@
     <com.velmurugan.inapplogger.InAppLogView
         android:id="@+id/tv"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="350dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/gotoSecondActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Go to second"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonLogApi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log API"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonLogError"
@@ -20,7 +38,7 @@
         android:layout_height="wrap_content"
         android:text="Log Error"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/buttonLogApi" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonLogWarning"

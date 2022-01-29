@@ -4,7 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Github/InAppLogger/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Github/InAppLogger/app/src/main/res/layout/activity_second.xml" value="0.13958333333333334" />
         <entry key="..\:/Github/InAppLogger/inapplogger/src/main/res/layout/layout_inapp.xml" value="0.25416666666666665" />
+        <entry key="..\:/Github/InAppLogger/inapplogger/src/main/res/layout/layout_log_type.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/velmu/.gradle/caches/transforms-3/8e2706a300bbec00002d22cf9bfadad6/transformed/appcompat-1.4.0/res/layout/support_simple_spinner_dropdown_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/velmu/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

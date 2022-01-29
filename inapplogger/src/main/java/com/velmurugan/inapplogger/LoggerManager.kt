@@ -21,7 +21,7 @@ abstract class LoggerManager(private val context: Context) : ILogger, Subject {
 
     }
 
-    protected fun saveLog(msg: String) {
+    protected fun saveLog(msg: String, tag: String) {
         try {
             if (!logFileDir.exists()) {
                 logFileDir.mkdir()
@@ -33,15 +33,17 @@ abstract class LoggerManager(private val context: Context) : ILogger, Subject {
 
             val buf = BufferedWriter(FileWriter(logFile, true))
             buf.append("<p>")
-            buf.append(msg)
+            buf.append(msg.replace("\r\n",""))
             buf.append("</p>")
+            buf.append("\n")
+            buf.flush()
             buf.close()
 
         } catch (ex: Exception) {
             Log.e("Logger", ex.toString())
 
         }
-        notifyMessage(msg)
+        notifyMessage(msg, tag)
     }
 
     override fun register(observer: MessageObserver) {
@@ -52,14 +54,14 @@ abstract class LoggerManager(private val context: Context) : ILogger, Subject {
         observers.remove(observer)
     }
 
-    override fun notifyMessage(msg: String) {
+    override fun notifyMessage(msg: String, tag:String?) {
         observers.forEach {
-            it.update()
+            it.update(tag)
         }
     }
 
 
-    fun getLog(): StringBuilder {
+    fun getLog(tag: String? = null): StringBuilder {
 
         //Read text from file
         val text = StringBuilder()
@@ -68,8 +70,22 @@ abstract class LoggerManager(private val context: Context) : ILogger, Subject {
             val br = BufferedReader(FileReader(logFile))
             var line: String?
             while (br.readLine().also { line = it } != null) {
-                text.append(line)
-                text.append('\n')
+                tag?.let {
+                    when {
+                        tag == getTag(line?: ">ALL:")-> {
+                            text.append(line)
+                            text.append('\n')
+                        }
+
+                        tag == LogType.ALL.name -> {
+                            text.append(line)
+                            text.append('\n')
+                        }
+                        else -> {}
+                    }
+                } ?: kotlin.run {
+
+                }
             }
             br.close()
         } catch (e: IOException) {
@@ -78,10 +94,14 @@ abstract class LoggerManager(private val context: Context) : ILogger, Subject {
         return text
     }
 
-    protected fun deleteOldLog() {
+    fun deleteOldLog() {
         if (logFile.exists()) {
             logFile.delete()
         }
+    }
+
+    private fun getTag(line: String): String {
+        return line.split(" :").first().split(">").last()
     }
 
 }
