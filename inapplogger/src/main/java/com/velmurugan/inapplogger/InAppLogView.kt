@@ -36,6 +36,7 @@ class InAppLogView constructor(context: Context, attrs: AttributeSet?) :
         scrollView = findViewById(R.id.scrollView)
         spinnerTag = findViewById(R.id.spinnerTag)
         btnClear = findViewById(R.id.btnCleanLog)
+        btnClose = findViewById(R.id.btnCloseLog)
         textView?.text = inAppLogger.getLog().toString()
         val adapter: ArrayAdapter<String> = ArrayAdapter<String>(
             context,R.layout.layout_log_type,tags
@@ -55,6 +56,10 @@ class InAppLogView constructor(context: Context, attrs: AttributeSet?) :
         btnClear?.setOnClickListener {
             inAppLogger.deleteOldLog()
             update(selectedTag)
+        }
+
+        btnClose?.setOnClickListener {
+            visibility = View.GONE
         }
 
 

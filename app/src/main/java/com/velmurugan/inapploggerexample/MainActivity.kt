@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         val v = findViewById<InAppLogView>(R.id.tv)
         logger = InAppLogger.loggerInstance!!
         logger.attachView(v)
+        logger.e("error Message added")
 
         findViewById<AppCompatButton>(R.id.gotoSecondActivity).setOnClickListener {
             startActivity(Intent(this, SecondActivity::class.java))
