@@ -13,7 +13,7 @@ abstract class LoggerManager(private val context: Context) : ILogger, Subject {
         File("${context.filesDir}/Log")
     }
 
-    private val logFile: File by lazy {
+    public val logFile: File by lazy {
         File("$logFileDir/logger.txt")
     }
 
@@ -72,7 +72,7 @@ abstract class LoggerManager(private val context: Context) : ILogger, Subject {
             while (br.readLine().also { line = it } != null) {
                 tag?.let {
                     when {
-                        tag == getTag(line?: ">ALL:")-> {
+                        tag == getTag(line?: "ALL")-> {
                             text.append(line)
                             text.append('\n')
                         }
@@ -101,7 +101,7 @@ abstract class LoggerManager(private val context: Context) : ILogger, Subject {
     }
 
     private fun getTag(line: String): String {
-        return line.split(" :").first().split(">").last()
+        return line.substring(47).trim().split(":").first().trim();
     }
 
 }
