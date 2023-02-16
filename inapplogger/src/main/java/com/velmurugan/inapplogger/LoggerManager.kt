@@ -21,6 +21,13 @@ abstract class LoggerManager(private val context: Context) : ILogger, Subject {
 
     }
 
+    companion object{
+        @JvmStatic
+        fun getTag(line: String): String {
+            return line.substring(24).trim().split(":").first().trim();
+        }
+    }
+
     protected fun saveLog(msg: String, tag: String) {
         try {
             if (!logFileDir.exists()) {
@@ -32,9 +39,7 @@ abstract class LoggerManager(private val context: Context) : ILogger, Subject {
             }
 
             val buf = BufferedWriter(FileWriter(logFile, true))
-            buf.append("<p>")
             buf.append(msg.replace("\r\n",""))
-            buf.append("</p>")
             buf.append("\n")
             buf.flush()
             buf.close()
@@ -98,10 +103,6 @@ abstract class LoggerManager(private val context: Context) : ILogger, Subject {
         if (logFile.exists()) {
             logFile.delete()
         }
-    }
-
-    private fun getTag(line: String): String {
-        return line.substring(47).trim().split(":").first().trim();
     }
 
 }
